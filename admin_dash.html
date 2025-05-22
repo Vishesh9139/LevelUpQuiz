@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #fff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            margin: 0 10px;
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .nav-links a.active {
+            color: #d9534f;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile img {
+            height: 40px;
+            margin-left: 10px;
+        }
+
+        .profile .name {
+            margin-right: 10px;
+            color: #d9534f;
+        }
+
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar h4 {
+            margin-bottom: 20px;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .profile-section img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .profile-section .name {
+            font-weight: bold;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        .social-login {
+            margin-top: 15px;
+        }
+
+        .social-login a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1>Admin Dashboard</h1>
+        </div>
+        <div class="nav-links">
+        </div>
+        <div class="profile">
+            <a href="about.html" class="nav-link">About us</a>
+            <div class="name">Admin</div>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="sidebar">
+            <h4>Dashboard</h4>
+            <div class="mb-3">
+                <label>Login Details</label>
+                <p>admin@example.com</p>
+            </div>
+            <div class="mb-3">
+                <label>Generate Quiz</label>
+                <button class="btn btn-primary btn-block mb-3" style="background-color: #D82828;" id="generate-quiz-btn">Generate Quiz</button>
+                <div class="form-group">
+                    <label>Select Subject</label>
+                    <select class="form-control">
+                        <option>Math</option>
+                        <option>Science</option>
+                        <option>History</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Select Difficulty Level</label>
+                    <select class="form-control">
+                        <option>Easy</option>
+                        <option>Medium</option>
+                        <option>Hard</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Generate Code</label>
+                <input type="text" class="form-control" placeholder="Enter code">
+            </div>
+        </div>
+        <div class="content">
+            <div class="profile-section">
+                <img src="profile-photo.png" alt="Profile Photo">
+                <div class="name">Admin</div>
+            </div>
+            <div class="table-container">
+                <h4>Student's Performance</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Exam</th>
+                            <th>Date</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Math</td>
+                            <td>2023-05-01</td>
+                            <td>85</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>Science</td>
+                            <td>2023-06-15</td>
+                            <td>90</td>
+                        </tr>
+                        <tr>
+                            <td>Mark Johnson</td>
+                            <td>History</td>
+                            <td>2023-07-20</td>
+                            <td>88</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('generate-quiz-btn').addEventListener('click', function () {
+            window.location.href = 'question.html';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #fff;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            color: #ccc;
+            text-decoration: none;
+        }
+        .nav-links a.active {
+            color: #d9534f;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+        .profile img {
+            height: 40px;
+            margin-left: 10px;
+        }
+        .profile .name {
+            margin-right: 10px;
+            color: #d9534f;
+        }
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar h4 {
+            margin-bottom: 20px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .profile-section img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .profile-section .name {
+            font-weight: bold;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        .social-login {
+            margin-top: 15px;
+        }
+        .social-login a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1>Level Up Quiz</h1>
+        </div>
+        <div class="nav-links"></div>
+        <div class="profile">
+            <a href="about.html" class="nav-link">About us</a>
+            <div class="name">Vishesh</div>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="sidebar">
+            <h4>Dashboard</h4>
+            <button id="start-quiz-btn" class="btn btn-primary btn-block mb-3" style="background-color: #D82828;">Start Your Quiz</button>
+            <div class="mb-3">
+                <label>Email</label>
+                <p>patelvishu11@gmail.com</p>
+            </div>
+            <div class="mb-3">
+                <label>Phone No.</label>
+                <p>+91-1234567890</p>
+            </div>
+            <div class="mb-3">
+                <label>Quiz Through Code</label>
+                <input type="text" class="form-control" placeholder="Enter code">
+            </div>
+        </div>
+        <div class="content">
+            <div class="profile-section">
+                <img src="profile-photo.png" alt="Profile Photo">
+                <div class="name">Vishesh Patel</div>
+            </div>
+            <div class="table-container">
+                <h4>Exams Given</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Exam</th>
+                            <th>Date</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Math</td>
+                            <td>2023-05-01</td>
+                            <td>85</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>2023-06-15</td>
+                            <td>90</td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td>2023-07-20</td>
+                            <td>88</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('start-quiz-btn').addEventListener('click', function() {
+            window.location.href = 'topicdifficulty.html';
+        });
+    </script>
+</body>
+</html>
+

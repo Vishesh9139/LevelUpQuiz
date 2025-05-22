@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | Level Up Quiz</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+            margin-top: -2%;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1100px;
+            padding: 15px;
+        }
+
+        .form-container {
+            flex: 1;
+            max-width: 450px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1,
+        h2,
+        p {
+            margin: 8px 0;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            flex: 1;
+            margin: 7px;
+        }
+
+        .form-control {
+            height: 40px;
+            padding: 8px;
+        }
+
+        .btn-primary,
+        .btn-secondary,
+        .btn-social {
+            width: 100%;
+            height: 40px;
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background-color: #d9534f;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #c9302c;
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #d9534f;
+            border: 2px solid #d9534f;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f4f4f4;
+        }
+
+        .btn-facebook {
+            background-color: #3b5998;
+            color: #fff;
+        }
+
+        .btn-facebook:hover {
+            background-color: #2d4373;
+        }
+
+        .btn-google {
+            background-color: #db4437;
+            color: #fff;
+        }
+
+        .btn-google:hover {
+            background-color: #c23321;
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 5%;
+        }
+
+        .image-container img {
+            max-width: 90%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .form-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+        }
+
+        h1 {
+            font-size: 200%;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 150%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Level Up Quiz</h1>
+            <p>Welcome! Signup to create your account.</p>
+            <h2>Signup</h2>
+            <form id="signup-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" required
+                            pattern="^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            title="Please enter a valid email address.">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" class="form-control" id="phone" required pattern="\d{10}"
+                                title="Please enter a valid 10-digit phone number.">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" class="form-control" id="studentId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" class="form-control" id="country" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="college">College</label>
+                        <input type="text" class="form-control" id="college" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="university">University</label>
+                        <input type="text" class="form-control" id="university" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" required
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                            title="Password must be at least 8 characters long and contain at least one letter and one number.">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Re-enter Password</label>
+                        <input type="password" class="form-control" id="confirm-password" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Signup</button>
+            </form>
+            <div style="margin: 15px 0;">
+                <p>Or signup with</p>
+                <button class="btn btn-social btn-facebook">Facebook</button>
+                <button class="btn btn-social btn-google">Google</button>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="https://bemftk.com/wp-content/uploads/2023/10/social-media-_-website-webpage-browser-account-user-application-woman-people-1024x1024.png"
+                alt="Illustration">
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('signup-form').onsubmit = function (event) {
+            event.preventDefault();
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+            alert('Signup successful! Redirecting to user dashboard...');
+            window.location.href = 'user-dashboard.html'; 
+            return true;
+        };
+    </script>
+</body>
+
+</html>

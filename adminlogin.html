@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Level Up Quiz</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+            margin-top: -2%;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+        }
+
+        .form-container {
+            flex: 1;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1,
+        h2,
+        p {
+            margin: 8px 0;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin: 10px 0;
+        }
+
+        .form-control {
+            height: 40px;
+            padding: 8px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            height: 40px;
+            font-size: 15px;
+            background-color: #d9534f;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #c9302c;
+        }
+
+        .btn-secondary {
+            width: 100%;
+            height: 40px;
+            font-size: 15px;
+            background-color: #5bc0de;
+            border: none;
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #31b0d5;
+        }
+
+        h1 {
+            font-size: 200%;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 150%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Level Up Quiz</h1>
+            <p>Admin Login</p>
+            <h2>Login</h2>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" class="form-control" id="adminEmail" required
+                        pattern="^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                        title="Please enter a valid email address.">
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" class="form-control" id="adminPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <button id="signUpButton" class="btn btn-secondary">Sign Up</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('adminLoginForm').onsubmit = function (event) {
+            event.preventDefault();
+            var email = document.getElementById('adminEmail').value;
+            var password = document.getElementById('adminPassword').value;
+
+            if (email && password) {
+                alert('Login successful');
+                window.location.href = 'admin_dash.html';
+                setTimeout(function() {
+                    window.location.href = 'question.html';
+                }, 2000); 
+            } else {
+                alert('Invalid credentials');
+            }
+        };
+
+        document.getElementById('signUpButton').onclick = function() {
+            window.location.href = 'signup.html';
+        };
+        
+    </script>
+</body>
+</html>

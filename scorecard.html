@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results - Level Up Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .results-container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        header nav span {
+            font-size: 18px;
+            color: red;
+        }
+
+        .results-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .score-circle {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .score-circle p {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .score-circle h2 {
+            margin: 10px 0;
+            font-size: 64px;
+        }
+
+        .score-circle img {
+            width: 100px;
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 50px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 3%;
+        }
+
+        .review-btn {
+            background-color: red;
+            color: #fff;
+        }
+
+        .send-btn {
+            background-color: red;
+            color: #fff;
+        }
+
+        .share-btn {
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="results-container">
+        <header>
+            <h1>Level Up Quiz</h1>
+            <nav>
+                <a href="about.html" class="nav-link">About us</a>
+                <span>ByPeople</span>
+            </nav>
+        </header>
+        <div class="results-content">
+            <div class="score-circle">
+                <p>Your score</p>
+                <h2>12/20</h2>
+                <img src="" alt="">
+            </div>
+            <div class="buttons-container">
+                <button class="btn review-btn">Review Answer</button>
+                <button class="btn send-btn">Send Score Through Mail</button>
+                <button class="btn share-btn">Share My Score</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

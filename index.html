@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up Quiz</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <style>
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff;
+        }
+
+        .content-wrapper {
+            width: 800px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: auto; 
+        }
+
+        .form-content {
+            flex: 1;
+        }
+
+        .image-content {
+            max-width: 300px;
+            margin-left: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .social-login {  
+            margin-top: 15px;
+        }
+
+        .social-login a {
+            margin-right: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .form-group.email-group label {
+            color: #D82828;
+        }
+
+        .form-group.email-group input {
+            color: #D82828;
+            border: none;
+            border-bottom: 2px solid #D82828;
+            outline: none;
+            box-shadow: none;
+        }
+
+        .form-group.email-group input:focus {
+            border-bottom: 2px solid darkred;
+        }
+
+        .otp-input {
+            width: 40px;
+            text-align: center;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        /* Custom CSS for buttons */
+        .btn-custom {
+            background-color: #D82828;
+            border-color: #D82828;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #B02020;
+            border-color: #B02020;
+        }
+
+        .btn-outline-custom {
+            border-color: #D82828;
+            color: #D82828;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: #D82828;
+            border-color: #D82828;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="mb-2">Level Up Quiz</h1>
+    <div class="container-fluid p-0">
+        <div class="main-container">
+            <div class="content-wrapper">
+                <div class="form-content">
+                    <p>Welcome back!<br>Please login/Signup to your account.</p>
+                    <form>
+                        <div class="form-group email-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-custom" id="generate-otp-btn">Generate OTP</button>
+                        </div>
+                        <div class="form-group otp-group d-none">
+                            <label for="otp">Enter OTP</label>
+                            <div id="otp-inputs">
+                                <input type="text" class="otp-input" maxlength="1">
+                                <input type="text" class="otp-input" maxlength="1">
+                                <input type="text" class="otp-input" maxlength="1">
+                                <input type="text" class="otp-input" maxlength="1">
+                                <input type="text" class="otp-input" maxlength="1">
+                                <input type="text" class="otp-input" maxlength="1">
+                            </div>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember Me</label>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="text-muted">Forgot Password?</a>
+                        </div>
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-custom mr-2" id="login-btn">Login</button>
+                            <button type="button" class="btn btn-outline-custom" id="signup-btn">Signup</button>
+                        </div>
+                    </form>
+                    <div class="social-login mt-4">
+                        <p>Or login with</p>
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="btn btn-outline-custom">Google</a>
+                        </div>
+                    </div>
+                    <p class="mt-3">Login As Admin</p>
+                    <button type="button" class="btn btn-custom" id="admin-login-btn">Admin Login</button>
+                </div>
+                <div class="image-content">
+                    <img src="extra.png" alt="Illustration" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="firebase.js"></script>
+    <script>
+        document.getElementById('generate-otp-btn').addEventListener('click', function() {
+            document.querySelector('.otp-group').classList.remove('d-none');
+        });
+
+        const otpInputs = document.querySelectorAll('.otp-input');
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', () => {
+                if (input.value.length === 1 && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            });
+        });
+
+        document.getElementById('login-btn').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            const isValidLogin = true; 
+
+            if (isValidLogin) {
+                window.location.href = 'user-dashboard.html'; 
+            } else {
+                alert('Invalid login credentials');
+            }
+        });
+
+        document.getElementById('signup-btn').addEventListener('click', function() {
+            window.location.href = 'signup.html'; 
+        });
+
+        document.getElementById('admin-login-btn').addEventListener('click', function() {
+            window.location.href = 'adminlogin.html'; 
+        });
+    </script>
+</body>
+</html>

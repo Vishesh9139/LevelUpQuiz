@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up Quiz</title>
+    <link rel="stylesheet" href="Page2.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 97%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            border-radius: 8px;
+        }
+
+        nav .user {
+            color: red;
+            border-radius: 8px;
+        }
+
+        main {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        .quiz-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search {
+            padding: 10px;
+            width: 200px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .dropbtn {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .start-quiz {
+            padding: 10px 20px;
+            background-color: red;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .quiz-image {
+            margin-top: 30px;
+            width: 300px;
+            border-radius: 8px;
+        }
+
+        .loader {
+            display: none;
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .difficulty-message {
+            margin-top: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: green;
+            padding: 10px 20px;
+            border-radius: 8px;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Level Up Quiz</div>
+        <nav>
+            <a href="about.html" class="nav-link">About us</a>
+            <div class="user">ByPeople</div>
+        </nav>
+    </header>
+    <main>
+        <h1>Choose Topic for your Quiz.</h1>
+        <div class="quiz-container">
+            <input type="text" placeholder="Search" class="search">
+            <div class="dropdown">
+                <button class="dropbtn" id="difficulty-button">Select Difficulty</button>
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="#" onclick="selectDifficulty('Easy')">Easy</a>
+                    <a href="#" onclick="selectDifficulty('Medium')">Medium</a>
+                    <a href="#" onclick="selectDifficulty('Hard')">Hard</a>
+                </div>
+            </div>
+            <div class="difficulty-message" id="difficulty-message"></div>
+            <button class="start-quiz" id="start-quiz-btn">Start Quiz</button>
+            <div class="loader" id="loader"></div>
+        </div>
+        <img src="" alt="levelup" class="levelup">
+    </main>
+    <script>
+        function selectDifficulty(level) {
+            const messageElement = document.getElementById('difficulty-message');
+            messageElement.innerText = `You have selected ${level} difficulty.`;
+            messageElement.style.display = 'block';
+            messageElement.style.marginTop = '20px';  // Adjust the margin-top to create distance
+        }
+
+        document.getElementById('start-quiz-btn').addEventListener('click', function () {
+            document.getElementById('loader').style.display = 'block';
+
+            setTimeout(function () {
+                document.getElementById('loader').style.display = 'none';
+                window.location.href = 'question.html';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
